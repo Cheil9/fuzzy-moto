@@ -1,0 +1,73 @@
+[System]
+Name='BalanceMotorcycleTest'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[-1 1]
+NumMFs=3
+MF1='neg':'trimf',[-1 -0.5 0]
+MF2='zero':'trimf',[-0.5 0 0.5]
+MF3='pos':'trimf',[0 0.5 1]
+
+[Input2]
+Name='input2'
+Range=[-0.1 0.1]
+NumMFs=3
+MF1='neg':'trimf',[-0.1 -0.05 0]
+MF2='zero':'trimf',[-0.05 0 0.05]
+MF3='pos':'trimf',[0 0.05 0.1]
+
+[Input3]
+Name='input3'
+Range=[-0.0001 0.0001]
+NumMFs=3
+MF1='neg':'trimf',[-0.0001 -5e-05 0]
+MF2='zero':'trimf',[-5e-05 0 5e-05]
+MF3='pos':'trimf',[0 5e-05 0.0001]
+
+[Output1]
+Name='output1'
+Range=[-0.02 0.02]
+NumMFs=3
+MF1='left':'trimf',[-0.02 -0.01 0]
+MF2='upright':'trimf',[-0.01 0 0.01]
+MF3='right':'trimf',[0 0.01 0.02]
+
+[Rules]
+1 1 1, 3 (1) : 1
+1 1 2, 3 (1) : 1
+1 1 3, 2 (1) : 1
+1 2 1, 3 (1) : 1
+1 2 2, 3 (1) : 1
+1 2 3, 2 (1) : 1
+1 3 1, 2 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 1 (1) : 1
+2 1 1, 3 (1) : 1
+2 1 2, 3 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
+2 3 3, 2 (1) : 1
+2 3 1, 1 (1) : 1
+2 3 2, 1 (1) : 1
+2 3 3, 2 (1) : 1
+3 1 1, 2 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 1 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 1 (1) : 1
+3 2 3, 1 (1) : 1
+3 3 1, 1 (1) : 1
+3 3 2, 1 (1) : 1
+3 3 3, 1 (1) : 1
